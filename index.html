@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>許旆慈 | 職涯探索與個人履歷</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1612;
+  --cream: #f5f0e8;
+  --paper: #faf7f2;
+  --gold: #c9963a;
+  --gold-light: #e8c97a;
+  --rust: #b5491e;
+  --sage: #5a7a5e;
+  --mist: #8ea0a8;
+  --warm-gray: #7a6f65;
+  --border: rgba(26,22,18,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', 'Noto Serif TC', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.2rem 3rem;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-style: italic;
+  color: var(--gold);
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); text-decoration: none;
+  position: relative; transition: color 0.2s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 8rem 3rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(135deg, #f5f0e8 0%, #faf7f2 60%, #eef2f0 100%);
+}
+.hero-grid-lines {
+  position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+}
+.hero-circle {
+  position: absolute; right: -8rem; top: 50%;
+  transform: translateY(-50%);
+  width: 55vw; height: 55vw;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(201,150,58,0.15) 0%, rgba(90,122,94,0.08) 60%, transparent 100%);
+  border: 1px solid rgba(201,150,58,0.2);
+}
+.hero-content { position: relative; z-index: 1; max-width: 680px; }
+.hero-eyebrow {
+  font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 32px; height: 1px; background: var(--gold);
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.hero-name em { font-style: italic; color: var(--gold); }
+.hero-subtitle {
+  font-size: 1.1rem; font-weight: 300;
+  color: var(--warm-gray); margin-bottom: 2.5rem;
+  max-width: 480px; line-height: 1.8;
+}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+.tag {
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  font-size: 0.78rem; color: var(--warm-gray);
+  transition: all 0.2s;
+  cursor: default;
+}
+.tag:hover { border-color: var(--gold); color: var(--gold); }
+.hero-cta { display: flex; gap: 1rem; }
+.btn-primary {
+  padding: 0.85rem 2.2rem;
+  background: var(--ink); color: var(--cream);
+  border: none; border-radius: 3rem;
+  font-size: 0.85rem; letter-spacing: 0.05em;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.25s; display: inline-block;
+}
+.btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+.btn-outline {
+  padding: 0.85rem 2.2rem;
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--border); border-radius: 3rem;
+  font-size: 0.85rem; cursor: pointer; text-decoration: none;
+  transition: all 0.25s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+/* ── SECTION COMMON ── */
+section { padding: 6rem 3rem; }
+.section-header { margin-bottom: 4rem; }
+.section-number {
+  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 0.8rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2; color: var(--ink);
+}
+.section-divider {
+  width: 3rem; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-top: 1.2rem;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* ── ASSESSMENT RESULTS ── */
+#assessment { background: var(--cream); }
+.assessment-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 1rem; padding: 2rem;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+.card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--sage));
+}
+.card-label {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--mist); margin-bottom: 0.6rem;
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--ink);
+}
+.personality-code {
+  display: flex; gap: 1rem; margin-bottom: 2rem;
+}
+.code-letter {
+  width: 3.5rem; height: 3.5rem;
+  border-radius: 0.6rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 700;
+  position: relative; overflow: hidden;
+}
+.code-A { background: rgba(201,150,58,0.15); color: var(--gold); border: 1px solid rgba(201,150,58,0.3); }
+.code-R { background: rgba(90,122,94,0.12); color: var(--sage); border: 1px solid rgba(90,122,94,0.3); }
+.code-I { background: rgba(142,160,168,0.15); color: var(--mist); border: 1px solid rgba(142,160,168,0.3); }
+.code-desc { font-size: 0.85rem; color: var(--warm-gray); line-height: 1.6; }
+.score-list { list-style: none; }
+.score-item {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+.score-label { font-size: 0.82rem; color: var(--ink); font-weight: 500; }
+.score-bar-wrap {
+  height: 6px; background: var(--border);
+  border-radius: 3px; position: relative; overflow: hidden;
+}
+.score-bar {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--sage));
+  transform-origin: left;
+  animation: barGrow 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform: scaleX(0);
+}
+@keyframes barGrow { to { transform: scaleX(1); } }
+.score-meta {
+  display: flex; justify-content: space-between;
+  font-size: 0.72rem; color: var(--warm-gray);
+}
+.strength-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.3rem 0.8rem; border-radius: 2rem;
+  font-size: 0.72rem;
+}
+.badge-mid { background: rgba(201,150,58,0.12); color: #a07020; border: 1px solid rgba(201,150,58,0.25); }
+.badge-weak { background: rgba(181,73,30,0.1); color: var(--rust); border: 1px solid rgba(181,73,30,0.2); }
+
+/* ── INTEREST RADAR ── */
+.interest-section { grid-column: 1 / -1; }
+.interest-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.interest-item {
+  padding: 1.2rem; border: 1px solid var(--border); border-radius: 0.8rem;
+  text-align: center; transition: all 0.2s; cursor: default;
+  position: relative;
+}
+.interest-item.highlight {
+  border-color: rgba(201,150,58,0.4);
+  background: rgba(201,150,58,0.05);
+}
+.interest-item:hover { transform: translateY(-2px); }
+.interest-name { font-size: 0.78rem; color: var(--ink); font-weight: 500; margin-bottom: 0.5rem; }
+.interest-score-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; color: var(--gold);
+}
+.interest-pr { font-size: 0.68rem; color: var(--warm-gray); }
+.interest-star {
+  position: absolute; top: 0.5rem; right: 0.5rem;
+  font-size: 0.6rem; color: var(--gold);
+}
+
+/* ── COMMON SKILLS ── */
+#skills { background: var(--paper); }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.skill-card {
+  border: 1px solid var(--border); border-radius: 1rem; padding: 1.8rem;
+  position: relative;
+}
+.skill-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.3rem; }
+.skill-score { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); }
+.skill-desc { font-size: 0.78rem; color: var(--warm-gray); margin-top: 0.5rem; line-height: 1.6; }
+.skill-bar-wrap { margin: 0.8rem 0; height: 4px; background: var(--border); border-radius: 2px; }
+.skill-bar { height: 100%; border-radius: 2px; animation: barGrow 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; transform: scaleX(0); transform-origin: left; }
+.bar-good { background: linear-gradient(90deg, var(--sage), #7aad7e); }
+.bar-mid { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.bar-low { background: linear-gradient(90deg, var(--rust), #d4603d); }
+
+/* ── JOB POSTING ── */
+#job { background: var(--cream); }
+.job-container {
+  display: grid; grid-template-columns: 1fr 1.3fr; gap: 3rem; align-items: start;
+}
+.job-card-big {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: 1.2rem; padding: 2.5rem; position: sticky; top: 6rem;
+}
+.job-company { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--mist); text-transform: uppercase; margin-bottom: 0.4rem; }
+.job-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.meta-chip {
+  padding: 0.3rem 0.8rem; border-radius: 2rem;
+  font-size: 0.73rem; color: var(--warm-gray);
+  background: var(--cream); border: 1px solid var(--border);
+}
+.job-section-title { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; margin-top: 1.2rem; }
+.job-list { padding-left: 1.2rem; }
+.job-list li { font-size: 0.85rem; color: var(--warm-gray); margin-bottom: 0.4rem; line-height: 1.6; }
+.job-why { }
+.why-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1.5rem; }
+.why-point {
+  display: flex; gap: 1rem; margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
+}
+.why-point:last-child { border-bottom: none; }
+.why-icon {
+  width: 2.5rem; height: 2.5rem; flex-shrink: 0;
+  border-radius: 0.6rem; background: rgba(201,150,58,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.why-content h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+.why-content p { font-size: 0.82rem; color: var(--warm-gray); line-height: 1.7; }
+
+/* ── RESUME ── */
+#resume { background: var(--paper); }
+.resume-layout { display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
+.resume-sidebar {
+  background: var(--ink); color: var(--cream);
+  border-radius: 1.2rem; padding: 2.5rem;
+  position: sticky; top: 6rem; align-self: start;
+}
+.rs-avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--sage));
+  margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 2rem; color: white;
+}
+.rs-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; text-align: center; margin-bottom: 0.3rem; }
+.rs-role { font-size: 0.75rem; text-align: center; color: rgba(245,240,232,0.6); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem; }
+.rs-section { margin-bottom: 2rem; }
+.rs-section-title { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.rs-item { font-size: 0.78rem; color: rgba(245,240,232,0.75); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+.rs-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.skill-pill-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-pill {
+  padding: 0.25rem 0.7rem; border-radius: 2rem;
+  font-size: 0.68rem; background: rgba(255,255,255,0.08);
+  color: rgba(245,240,232,0.8); border: 1px solid rgba(255,255,255,0.1);
+}
+.resume-main { }
+.resume-section { margin-bottom: 3rem; }
+.rs-main-title {
+  font-family: 'Playfair Display', serif; font-size: 1.1rem;
+  margin-bottom: 1.5rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.rs-main-title::before {
+  content: ''; width: 3px; height: 1.2rem;
+  background: var(--gold); border-radius: 2px; display: block;
+}
+.timeline-item { position: relative; padding-left: 1.5rem; margin-bottom: 1.8rem; }
+.timeline-item::before {
+  content: ''; position: absolute; left: 0; top: 0.5rem;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); border: 2px solid var(--paper);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.timeline-item::after {
+  content: ''; position: absolute; left: 3.5px; top: 1.3rem;
+  width: 1px; bottom: -0.5rem; background: var(--border);
+}
+.timeline-item:last-child::after { display: none; }
+.tl-date { font-size: 0.72rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+.tl-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.2rem; }
+.tl-sub { font-size: 0.8rem; color: var(--warm-gray); margin-bottom: 0.5rem; }
+.tl-desc { font-size: 0.8rem; color: var(--warm-gray); line-height: 1.7; }
+.future-item {
+  border: 1px solid var(--border); border-radius: 0.8rem; padding: 1.2rem;
+  margin-bottom: 1rem; transition: all 0.2s;
+}
+.future-item:hover { border-color: var(--gold); }
+.fi-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.3rem; }
+.fi-title { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.3rem; }
+.fi-desc { font-size: 0.78rem; color: var(--warm-gray); line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); color: rgba(245,240,232,0.5);
+  padding: 3rem; text-align: center; font-size: 0.78rem;
+}
+footer strong { color: var(--gold); }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 7rem 1.5rem 3rem; }
+  .assessment-grid, .skills-grid, .job-container, .resume-layout { grid-template-columns: 1fr; }
+  .interest-grid { grid-template-columns: repeat(2, 1fr); }
+  .resume-sidebar { position: static; }
+  .hero-circle { display: none; }
+}
+
+/* TAB SYSTEM */
+.tabs { display: flex; gap: 0.3rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.tab-btn {
+  padding: 0.5rem 1.2rem; border-radius: 2rem;
+  font-size: 0.78rem; cursor: pointer;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--warm-gray); transition: all 0.2s;
+}
+.tab-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">許旆慈</div>
+  <ul class="nav-links">
+    <li><a href="#assessment">職涯測驗</a></li>
+    <li><a href="#skills">職場共通職能</a></li>
+    <li><a href="#job">目標職缺</a></li>
+    <li><a href="#resume">個人履歷</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">靜宜大學 · 資訊管理學系</div>
+    <h1 class="hero-name">許旆慈<br><em>Portfolio</em></h1>
+    <p class="hero-subtitle">正在探索 MIS 與資訊科技領域的大學生，<br>具備系統分析基礎，熱愛創新思考與解決問題。</p>
+    <div class="hero-tags">
+      <span class="tag">🎨 藝術型 ARI</span>
+      <span class="tag">💻 資訊管理</span>
+      <span class="tag">📊 系統分析</span>
+      <span class="tag">✍️ 技術文件</span>
+      <span class="tag">🔍 研究型思維</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#resume" class="btn-primary">查看履歷</a>
+      <a href="#job" class="btn-outline">目標職缺</a>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section id="assessment">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">01 — UCAN 職涯測驗結果</span>
+      <h2 class="section-title">了解自己，<br>找到方向</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="assessment-grid">
+      <!-- Holland Code Card -->
+      <div class="card reveal">
+        <div class="card-label">職業性格代碼 · Holland Code</div>
+        <div class="card-title">ARI 藝術・實用・研究</div>
+        <div class="personality-code">
+          <div class="code-letter code-A">A</div>
+          <div class="code-letter code-R">R</div>
+          <div class="code-letter code-I">I</div>
+        </div>
+        <p class="code-desc">藝術型偏好運用創意表達；實用型強調動手操作、講求具體成果；研究型善於分析推理、追根究柢。三者結合，適合需要創意思維 × 技術實踐 × 邏輯分析的 MIS 工作。</p>
+        <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+          <span class="strength-badge badge-mid">藝術型 5分 / PR63</span>
+          <span class="strength-badge badge-mid">實用型 5分 / PR61</span>
+          <span class="strength-badge badge-mid">研究型 4分 / PR47</span>
+        </div>
+      </div>
+
+      <!-- Professional Skills Card -->
+      <div class="card reveal">
+        <div class="card-label">專業職能診斷 · 軟體開發及程式設計</div>
+        <div class="card-title">整體平均 3.14分</div>
+        <ul class="score-list">
+          <li class="score-item">
+            <div class="score-label">提供產品維護與客戶支援服務</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:75%"></div></div>
+            <div class="score-meta"><span>最高分項目</span><span>3.75 / 5</span></div>
+          </li>
+          <li class="score-item">
+            <div class="score-label">依據專案需求進行系統分析</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:70%"></div></div>
+            <div class="score-meta"><span>中等能力</span><span>3.5 / 5</span></div>
+          </li>
+          <li class="score-item">
+            <div class="score-label">撰寫技術文件及使用手冊</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:60%"></div></div>
+            <div class="score-meta"><span>中等能力</span><span>3.0 / 5</span></div>
+          </li>
+          <li class="score-item">
+            <div class="score-label">確認軟體開發或程式設計需求</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:54%"></div></div>
+            <div class="score-meta"><span>尚待加強</span><span>2.67 / 5</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Interest Card - full width -->
+      <div class="card interest-section reveal">
+        <div class="card-label">職業興趣探索 · 16種職涯類型分布</div>
+        <div class="card-title">興趣度最高 → 醫療保健・藝文傳播・科學技術工程數學</div>
+        <div class="interest-grid">
+          <div class="interest-item highlight">
+            <div class="interest-star">★ TOP</div>
+            <div class="interest-name">醫療保健</div>
+            <div class="interest-score-num">2.05</div>
+            <div class="interest-pr">PR 51</div>
+          </div>
+          <div class="interest-item highlight">
+            <div class="interest-star">★ TOP</div>
+            <div class="interest-name">藝文與影音傳播</div>
+            <div class="interest-score-num">1.75</div>
+            <div class="interest-pr">PR 56</div>
+          </div>
+          <div class="interest-item highlight">
+            <div class="interest-star">★ TOP</div>
+            <div class="interest-name">科學・技術・工程・數學</div>
+            <div class="interest-score-num">1.75</div>
+            <div class="interest-pr">PR 65</div>
+          </div>
+          <div class="interest-item highlight">
+            <div class="interest-star">★</div>
+            <div class="interest-name">教育與訓練</div>
+            <div class="interest-score-num">1.75</div>
+            <div class="interest-pr">PR 31</div>
+          </div>
+          <div class="interest-item">
+            <div class="interest-name">天然資源・食品與農業</div>
+            <div class="interest-score-num">1.45</div>
+            <div class="interest-pr">PR 53</div>
+          </div>
+          <div class="interest-item">
+            <div class="interest-name">個人及社會服務</div>
+            <div class="interest-score-num">1.75</div>
+            <div class="interest-pr">PR 34</div>
+          </div>
+          <div class="interest-item">
+            <div class="interest-name">製造</div>
+            <div class="interest-score-num">1.45</div>
+            <div class="interest-pr">PR 44</div>
+          </div>
+          <div class="interest-item">
+            <div class="interest-name">資訊科技</div>
+            <div class="interest-score-num">0.55</div>
+            <div class="interest-pr">PR 18</div>
+          </div>
+        </div>
+        <p style="font-size:0.78rem; color:var(--warm-gray); margin-top:1rem;">💡 興趣分數代表對工作環境的偏好，非能力強弱。資訊科技興趣較低，或許因為對此領域尚不夠深入了解，可透過實習探索更多可能性。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">02 — 職場共通職能</span>
+      <h2 class="section-title">8項核心<br>職場能力</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-name">人際互動</div>
+        <div class="skill-score">3.67</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-good" style="width:73.4%"></div></div>
+        <div class="score-meta"><span>PR 32</span><span>中等能力</span></div>
+        <div class="skill-desc">能依不同情境與他人互動共事，可持續練習同理心，擴大人際網絡。</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-name">創新</div>
+        <div class="skill-score">3.50</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-good" style="width:70%"></div></div>
+        <div class="score-meta"><span>PR 39</span><span>中等能力</span></div>
+        <div class="skill-desc">能在有框架下提出新想法，適合 MIS 工作中的流程改善與系統優化。</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-name">資訊科技應用</div>
+        <div class="skill-score">3.50</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-mid" style="width:70%"></div></div>
+        <div class="score-meta"><span>PR 31</span><span>中等能力</span></div>
+        <div class="skill-desc">能使用基礎數位工具，建議加強進階試算表、資料庫及程式應用。</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-name">溝通表達</div>
+        <div class="skill-score">3.14</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-low" style="width:62.8%"></div></div>
+        <div class="score-meta"><span>PR 15</span><span>尚待加強</span></div>
+        <div class="skill-desc">可多練習口頭報告、技術文件撰寫，以提升職場溝通能力。</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-name">工作責任及紀律</div>
+        <div class="skill-score">3.14</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-low" style="width:62.8%"></div></div>
+        <div class="score-meta"><span>PR 10</span><span>尚待加強</span></div>
+        <div class="skill-desc">養成先規劃再執行的工作習慣，逐步提升任務完成品質。</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-name">問題解決</div>
+        <div class="skill-score">3.00</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-low" style="width:60%"></div></div>
+        <div class="score-meta"><span>PR 15</span><span>尚待加強</span></div>
+        <div class="skill-desc">加強系統化分析思維，學習拆解問題框架，是 MIS 工作的關鍵能力。</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-name">持續學習</div>
+        <div class="skill-score">3.00</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-low" style="width:60%"></div></div>
+        <div class="score-meta"><span>PR 13</span><span>尚待加強</span></div>
+        <div class="skill-desc">主動設定職涯學習目標，養成追蹤產業趨勢的習慣。</div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-name">團隊合作</div>
+        <div class="skill-score">2.86</div>
+        <div class="skill-bar-wrap"><div class="skill-bar bar-low" style="width:57.2%"></div></div>
+        <div class="score-meta"><span>PR 3</span><span>尚待加強</span></div>
+        <div class="skill-desc">建議多參與社團活動、競賽或志工服務，體驗協作帶來的成就感。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOB -->
+<section id="job">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">03 — 目標職缺</span>
+      <h2 class="section-title">MIS 資訊管理師<br>為何適合？</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="job-container">
+      <div class="job-card-big reveal">
+        <div class="job-company">104人力銀行 · 台中市</div>
+        <div class="job-title">MIS 資訊管理師<br>（Junior Level）</div>
+        <div class="job-meta">
+          <span class="meta-chip">🏢 製造/服務業</span>
+          <span class="meta-chip">💰 月薪 30K~40K</span>
+          <span class="meta-chip">📍 台中</span>
+          <span class="meta-chip">🎓 大學畢業</span>
+        </div>
+        <div class="job-section-title">工作內容</div>
+        <ul class="job-list">
+          <li>維護公司內部資訊系統、確保系統正常運作</li>
+          <li>協助使用者解決IT相關問題（IT Help Desk）</li>
+          <li>管理與維護網路設備、伺服器及資安政策</li>
+          <li>配合業務需求進行系統分析與需求訪談</li>
+          <li>撰寫操作手冊與系統說明文件</li>
+          <li>協助導入或升級企業資訊系統（ERP / CRM）</li>
+        </ul>
+        <div class="job-section-title">應徵條件</div>
+        <ul class="job-list">
+          <li>資訊管理、資工、電算相關科系畢業</li>
+          <li>具備基礎程式設計能力（Python / SQL 尤佳）</li>
+          <li>有良好的溝通與文件撰寫能力</li>
+          <li>具備系統思維，能獨立解決問題</li>
+          <li>歡迎應屆畢業生，有相關實習經驗尤佳</li>
+        </ul>
+      </div>
+      <div class="job-why reveal">
+        <div class="why-title">為什麼我適合<br>這份工作？</div>
+        <div class="why-point">
+          <div class="why-icon">🎓</div>
+          <div class="why-content">
+            <h4>科系背景完全對口</h4>
+            <p>就讀靜宜大學資訊管理學系，課程涵蓋系統分析、資料庫、程式設計與企業資訊系統，與 MIS 職務所需技能高度吻合。</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">🔍</div>
+          <div class="why-content">
+            <h4>UCAN 系統分析能力 PR49</h4>
+            <p>在「依據專案需求進行系統分析」項目達到 PR49，代表具備超越近半數大學生的系統分析思維，是 MIS 工作的核心能力。</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">📄</div>
+          <div class="why-content">
+            <h4>技術文件撰寫 PR54</h4>
+            <p>在「撰寫技術文件及使用手冊」項目 PR 值達 54，具備超過一半同學的文件能力，對於 MIS 工作中的 SOP 與系統文件撰寫大有助益。</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">🛠️</div>
+          <div class="why-content">
+            <h4>產品維護與客服意識最強</h4>
+            <p>「提供產品維護與客戶支援服務」得分最高（3.75/5，PR60），這正是 MIS Help Desk 角色最需要的核心態度。</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">💡</div>
+          <div class="why-content">
+            <h4>創新思維 × ARI 人格特質</h4>
+            <p>藝術型（A）的創意思維 + 研究型（I）的邏輯分析 + 實用型（R）的動手實踐，三者結合讓我能在 MIS 工作中提出系統改善方案並付諸執行。</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-icon">📈</div>
+          <div class="why-content">
+            <h4>成長型思維，持續精進</h4>
+            <p>清楚自己在溝通表達、持續學習等面向尚有進步空間，將透過課程規劃與實務累積持續強化，具備良好的自我覺察能力。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">04 — 個人履歷</span>
+      <h2 class="section-title">學習歷程與<br>未來規劃</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="resume-layout">
+      <!-- Sidebar -->
+      <div class="resume-sidebar reveal">
+        <div class="rs-avatar">許</div>
+        <div class="rs-name">許旆慈</div>
+        <div class="rs-role">資訊管理 · MIS 求職中</div>
+
+        <div class="rs-section">
+          <div class="rs-section-title">基本資料</div>
+          <div class="rs-item">靜宜大學資訊管理系</div>
+          <div class="rs-item">學號 411316395</div>
+          <div class="rs-item">大學部日間部</div>
+        </div>
+
+        <div class="rs-section">
+          <div class="rs-section-title">技術技能</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill">系統分析</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">HTML/CSS</span>
+            <span class="skill-pill">Excel</span>
+            <span class="skill-pill">Word</span>
+            <span class="skill-pill">PowerPoint</span>
+            <span class="skill-pill">技術文件</span>
+          </div>
+        </div>
+
+        <div class="rs-section">
+          <div class="rs-section-title">人格特質</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill">藝術型 A</span>
+            <span class="skill-pill">研究型 I</span>
+            <span class="skill-pill">實用型 R</span>
+            <span class="skill-pill">善於分析</span>
+            <span class="skill-pill">重視實作</span>
+          </div>
+        </div>
+
+        <div class="rs-section">
+          <div class="rs-section-title">UCAN 亮點</div>
+          <div class="rs-item">系統分析 PR49</div>
+          <div class="rs-item">技術文件 PR54</div>
+          <div class="rs-item">客戶支援 PR60</div>
+          <div class="rs-item">創新能力 PR39</div>
+        </div>
+      </div>
+
+      <!-- Main Resume -->
+      <div class="resume-main">
+        <div class="resume-section reveal">
+          <div class="rs-main-title">學習經歷</div>
+          <div class="timeline-item">
+            <div class="tl-date">2022 — 至今</div>
+            <div class="tl-title">靜宜大學 · 資訊管理學系</div>
+            <div class="tl-sub">學士班 日間部</div>
+            <div class="tl-desc">主修資訊管理，修習資料庫管理、系統分析與設計、程式設計、企業資訊系統等課程。參與 UCAN 職涯測驗，進行職涯方向探索。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-date">2026年03月</div>
+            <div class="tl-title">UCAN 專業職能診斷</div>
+            <div class="tl-sub">資訊科技 · 軟體開發及程式設計</div>
+            <div class="tl-desc">完成 UCAN 平台軟體開發及程式設計診斷，整體平均 3.14 分（PR28），其中系統分析（PR49）、技術文件（PR54）、產品維護（PR60）表現相對突出。</div>
+          </div>
+        </div>
+
+        <div class="resume-section reveal">
+          <div class="rs-main-title">自我介紹</div>
+          <p style="font-size:0.85rem; color:var(--warm-gray); line-height:1.9; margin-bottom:1rem;">
+            我是就讀靜宜大學資訊管理系的大學生，對資訊系統與科技應用充滿熱忱。透過 UCAN 職涯測驗，確認自己具備 ARI（藝術型・實用型・研究型）的職業人格特質，擅長結合創意思維與邏輯分析。
+          </p>
+          <p style="font-size:0.85rem; color:var(--warm-gray); line-height:1.9;">
+            在專業職能方面，系統分析與技術文件撰寫是我的相對優勢；在職場共通職能上，人際互動與創新思維得分較高，也清楚認識到自己在溝通表達、持續學習與團隊合作方面仍有提升空間，並擬定具體的成長計畫。
+          </p>
+        </div>
+
+        <div class="resume-section reveal">
+          <div class="rs-main-title">未來充實計畫</div>
+          <div class="future-item">
+            <div class="fi-tag">📚 短期課程規劃</div>
+            <div class="fi-title">加強 SQL 與資料庫管理能力</div>
+            <div class="fi-desc">透過線上課程（如 Coursera、Udemy）系統學習 MySQL/PostgreSQL，並實作資料庫設計專案，加強 MIS 職務所需的核心技術能力。</div>
+          </div>
+          <div class="future-item">
+            <div class="fi-tag">🤝 社團參與</div>
+            <div class="fi-title">加入資訊管理相關社團或競賽</div>
+            <div class="fi-desc">參與校內外黑客松、資訊應用競賽或系學會，鍛鍊團隊合作與溝通表達能力，並累積實際專案經驗填充履歷。</div>
+          </div>
+          <div class="future-item">
+            <div class="fi-tag">🏢 實習計畫</div>
+            <div class="fi-title">尋找 MIS / IT Help Desk 相關實習</div>
+            <div class="fi-desc">於大三下或大四到企業進行資訊部門實習，實際體驗 MIS 工作內容，應用課堂所學並探索不同產業的資訊管理需求。</div>
+          </div>
+          <div class="future-item">
+            <div class="fi-tag">📜 證照考取</div>
+            <div class="fi-title">規劃取得相關資訊證照</div>
+            <div class="fi-desc">目標取得 MOS（微軟辦公軟體）、TQC+ 資訊管理或 CompTIA ITF+ 等基礎資訊證照，強化求職競爭力。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>許旆慈</strong> · 靜宜大學資訊管理學系 · 學號 411316395</p>
+  <p style="margin-top:0.5rem;">個人職涯探索作業 · 2026</p>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// Animate bars when visible
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.score-bar, .skill-bar').forEach((bar, i) => {
+        bar.style.animationDelay = `${i * 0.15 + 0.3}s`;
+        bar.style.animationPlayState = 'running';
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.card, .skill-card').forEach(card => {
+  card.querySelectorAll('.score-bar, .skill-bar').forEach(bar => {
+    bar.style.animationPlayState = 'paused';
+  });
+  barObserver.observe(card);
+});
+
+// Nav shadow on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.06)' : 'none';
+});
+</script>
+</body>
+</html>
